@@ -42,7 +42,7 @@ public class ValidPalindrom {
         return s;
     }
 
-    private static boolean checkValidPalindrom(String clean) {
+    public static boolean checkValidPalindrom(String clean) {
         if(clean==null || clean.length()==0) {
             return true;
         } else {
