@@ -28,11 +28,14 @@ public class ListNode {
     public String print() {
         ListNode l = this;
         StringBuffer sb = new StringBuffer();
-        sb.append(l.getValue());
-        while (l.hasNext()) {
-            sb.append("->" + l.getNext().getValue());
-            l = l.getNext();
+        if(l!=null) {
+            sb.append(l.getValue());
+            while (l.hasNext()) {
+                sb.append("->" + l.getNext().getValue());
+                l = l.getNext();
+            }
         }
+
         return sb.toString();
     }
 
