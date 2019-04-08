@@ -9,6 +9,7 @@ public class Minesweeper {
 
     private int size;
     private int mines;
+    private boolean debug = false;
     private String[][] hidden = null;
     private String[][] open = null;
     private boolean won = false;
@@ -65,6 +66,7 @@ public class Minesweeper {
         System.out.println("Welcome to Minesweeper!");
 
         while(!(won || lost)) {
+            print();
             Move move = readNextMove();
             nextMove(move);
         }
@@ -183,26 +185,45 @@ public class Minesweeper {
     }
 
     public void print() {
-        System.out.println("HIDDEN:");
+        if(debug) {
+            System.out.println("HIDDEN Minesweeper Field:");
 
-        for(int x=0; x<this.size; x++) {
-            System.out.print("|");
-            for(int y=0; y<this.size; y++) {
-                System.out.print("" + hidden[x][y] + "|");
+            for(int x=0; x<this.size; x++) {
+                System.out.print(x + "\t|");
+                for(int y=0; y<this.size; y++) {
+                    System.out.print("" + hidden[x][y] + "|");
+                }
+                System.out.println("");
             }
-            System.out.println("");
         }
 
-        System.out.println("OPEN");
+        System.out.println("\nOpen Minesweeper Field:");
+        System.out.println("-------------------------------------------------");
+
+
+        System.out.print("|  | 1");
+        for(int s=1; s<this.size; s++) {
+            if(s<9)  {
+                System.out.print(" | " + (s+1));
+            } else {
+                System.out.print(" | " + (s+1));
+            }
+        }
+        System.out.println("|");
 
         for(int x=0; x<this.size; x++) {
-            System.out.print("|");
-            for(int y=0; y<this.size; y++) {
-                System.out.print("" + open[x][y] + "|");
+            if(x<9) {
+                System.out.print("| " + (x+1));
+            } else {
+                System.out.print("|" + (x+1));
             }
-            System.out.println("");
+            //System.out.print("| " + (x+1));
+            for(int y=0; y<this.size; y++) {
+                System.out.print("|" + open[x][y]);
+            }
+            System.out.println("|");
         }
-
+        System.out.println("-------------------------------------------------");
     }
 
 
