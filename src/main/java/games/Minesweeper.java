@@ -197,20 +197,27 @@ public class Minesweeper {
             }
         }
 
-        System.out.println("\nOpen Minesweeper Field:");
-        System.out.println("-------------------------------------------------");
+        System.out.println("\nHere is your open Minesweeper field:");
 
+        // format line header
+        printFormatLine();
 
+        // index line header
         System.out.print("|  | 1");
         for(int s=1; s<this.size; s++) {
             if(s<9)  {
                 System.out.print(" | " + (s+1));
             } else {
-                System.out.print(" | " + (s+1));
+                System.out.print(" |" + (s+1));
             }
         }
-        System.out.println("|");
+        if(this.size<9)  {
+            System.out.println(" |");
+        } else {
+            System.out.println(" |");
+        }
 
+        // content
         for(int x=0; x<this.size; x++) {
             if(x<9) {
                 System.out.print("| " + (x+1));
@@ -223,7 +230,16 @@ public class Minesweeper {
             }
             System.out.println("|");
         }
-        System.out.println("-------------------------------------------------");
+
+        // format line header
+        printFormatLine();
+    }
+
+    private void printFormatLine() {
+        for(int s=1; s<this.size; s++) {
+            System.out.print("----");
+        }
+        System.out.println("--------");
     }
 
 
