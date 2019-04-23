@@ -2,7 +2,7 @@ package bitmanipulation;
 
 import java.util.*;
 
-public class countTripletsBitwiseAnd {
+public class CountTripletsBitwiseAnd {
     public static void main(String[] args) {
         System.out.println("12 " + countTriplets(new int[]{2,1,3}));
         System.out.println("0 " + countTriplets(new int[]{2,2,2}));
