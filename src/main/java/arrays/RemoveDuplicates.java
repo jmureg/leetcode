@@ -6,9 +6,9 @@ public class RemoveDuplicates {
 
     public static void main(String[] args) {
         int[] nums = null;
-/*
- */
-        nums = new int[]{1,1,2,3};
+        /*
+         */
+        nums = new int[]{1, 1, 2, 3};
         System.out.println("len: 3 - " + removeDuplicates(nums));
         System.out.println(Arrays.toString(nums));
 
@@ -25,7 +25,7 @@ public class RemoveDuplicates {
         System.out.println(Arrays.toString(nums));
 
 
-        nums = new int[]{1,1,1,2,2,3,4,5,5,5,5,5,5,5,5,6,6,6,7,7,8,8,8,9,9,9,9,9,9,9};
+        nums = new int[]{1, 1, 1, 2, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9};
         System.out.println("len: 9 - " + removeDuplicates(nums));
         System.out.println(Arrays.toString(nums));
     }
@@ -33,7 +33,7 @@ public class RemoveDuplicates {
     public static int removeDuplicates(int[] nums) {
         int i = nums.length > 0 ? 1 : 0;
         for (int n : nums)
-            if (n > nums[i-1])
+            if (n > nums[i - 1])
                 nums[i++] = n;
         return i;
     }

@@ -13,7 +13,7 @@ Find the maximum area of an island in the given 2D array. (If there is no island
  https://leetcode.com/problems/max-area-of-island/
  */
 public class LongestPath {
-    public static void main(String args[] ) throws Exception {
+    public static void main(String[] args) {
 
         LongestPath lp = new LongestPath();
 
@@ -77,7 +77,7 @@ public class LongestPath {
         System.out.println("expected 1: " + lp.longestPath(ex6));
 
         int[][] ex7 = new int[][]{
-                new int[]{1,1}
+                new int[]{1, 1}
         };
         System.out.println("expected 1: " + lp.longestPath(ex6));
     }
@@ -100,34 +100,34 @@ source https://leetcode.com/problems/max-area-of-island/solution/
         }
         return ans;
     }
+
     public int area(int r, int c) {
         if (r < 0 || r >= grid.length || c < 0 || c >= grid[0].length ||
                 seen[r][c] || grid[r][c] == 0)
             return 0;
         seen[r][c] = true;
-        return (1 + area(r+1, c) + area(r-1, c)
-                + area(r, c-1) + area(r, c+1));
+        return (1 + area(r + 1, c) + area(r - 1, c)
+                + area(r, c - 1) + area(r, c + 1));
     }
-
 
 
     public int longestPath2(int[][] matrix) {
         int maxLength = 0;
-        if(matrix==null || matrix.length==0) {
+        if (matrix == null || matrix.length == 0) {
             return 0;
         }
-        if(matrix.length==1 && matrix[0].length==1) {
-            return (matrix[0][0]==1)? 1:0;
+        if (matrix.length == 1 && matrix[0].length == 1) {
+            return (matrix[0][0] == 1) ? 1 : 0;
         }
 
         boolean[][] path = new boolean[matrix.length][matrix[0].length];
 
-        for(int y=0; y<matrix.length; y++) {
-            for(int x=0; x<matrix[0].length; x++) {
+        for (int y = 0; y < matrix.length; y++) {
+            for (int x = 0; x < matrix[0].length; x++) {
                 //System.out.println("current position: X:" + x + " and Y:" + y);
                 int currentLength = checkPath(x, y, matrix, path);
                 //System.out.println("\t current: " + currentLength);
-                if(currentLength>maxLength) {
+                if (currentLength > maxLength) {
                     maxLength = currentLength;
                 }
             }
@@ -140,31 +140,31 @@ source https://leetcode.com/problems/max-area-of-island/solution/
         //System.out.println("\t check recursive position: X:" + x + " and Y:" + y);
 
         // y + 1
-        if(y<matrix.length-1 && matrix[y+1][x]==1 && path[y+1][x]==false) {
+        if (y < matrix.length - 1 && matrix[y + 1][x] == 1 && path[y + 1][x] == false) {
             boolean[][] cloneD = path.clone();
             cloneD[y][x] = true;
-            return 1 + checkPath(x, y+1, matrix, cloneD);
+            return 1 + checkPath(x, y + 1, matrix, cloneD);
         }
 
         // y - 1
-        if(y>0 && matrix[y-1][x]==1 && path[y-1][x]==false) {
+        if (y > 0 && matrix[y - 1][x] == 1 && path[y - 1][x] == false) {
             boolean[][] cloneU = path.clone();
             cloneU[y][x] = true;
-            return 1 + checkPath(x, y-1, matrix, cloneU);
+            return 1 + checkPath(x, y - 1, matrix, cloneU);
         }
 
         // x + 1
-        if(x<matrix[0].length-1 && matrix[y][x+1]==1 && path[y][x+1]==false) {
+        if (x < matrix[0].length - 1 && matrix[y][x + 1] == 1 && path[y][x + 1] == false) {
             boolean[][] cloneR = path.clone();
             cloneR[y][x] = true;
-            return 1 + checkPath(x+1, y, matrix, cloneR);
+            return 1 + checkPath(x + 1, y, matrix, cloneR);
         }
 
         // x - 1
-        if(x>0 && matrix[y][x-1]==1 && path[y][x-1]==false) {
+        if (x > 0 && matrix[y][x - 1] == 1 && path[y][x - 1] == false) {
             boolean[][] cloneL = path.clone();
             cloneL[y][x] = true;
-            return 1 + checkPath(x-1, y, matrix, cloneL);
+            return 1 + checkPath(x - 1, y, matrix, cloneL);
         }
 
         return 0;

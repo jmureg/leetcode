@@ -14,13 +14,14 @@ public class DeleteNode {
         deleteNode(a7);
         System.out.println(a.print());
     }
+
     public static void deleteNode(ListNode node) {
-        if(node==null) {
+        if (node == null) {
             return;
         }
-        if (node.next==null) {
+        if (node.next == null) {
             node = null;
-        } else if (node.next!=null) {
+        } else if (node.next != null) {
             node.val = node.next.val;
             node.next = node.next.next;
         }

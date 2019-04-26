@@ -17,8 +17,8 @@ public class RotateImage {
     }
 
     public static void rotate(int[][] matrix) {
-        for(int row=0; row<matrix[0].length; row++) {
-            for(int column=0; column<matrix.length; column++) {
+        for (int row = 0; row < matrix[0].length; row++) {
+            for (int column = 0; column < matrix.length; column++) {
 
             }
         }

@@ -1,9 +1,7 @@
 package arrays;
 
-import com.sun.xml.internal.xsom.impl.scd.Axis;
-
 public class MaximumSumCircularSubarray {
-    MaximumSumCircularSubarray(){
+    MaximumSumCircularSubarray() {
     }
 
     /*
@@ -38,18 +36,18 @@ public class MaximumSumCircularSubarray {
         int currentMax = Integer.MIN_VALUE;
         int max = Integer.MIN_VALUE;
 
-        for(int i=0; i<A.length; i++) {
+        for (int i = 0; i < A.length; i++) {
             current = A[i];
             currentMax = A[i];
-            for(int ii=i+1; ii<A.length; ii++) {
-                if (currentMax < current+A[ii]) {
+            for (int ii = i + 1; ii < A.length; ii++) {
+                if (currentMax < current + A[ii]) {
                     currentMax = current + A[ii];
                 }
                 current += A[ii];
 
             }
-            for(int ii=0; ii<i-1; ii++) {
-                if (currentMax < current+A[ii]) {
+            for (int ii = 0; ii < i - 1; ii++) {
+                if (currentMax < current + A[ii]) {
                     currentMax = current + A[ii];
                 }
                 current += A[ii];
@@ -66,9 +64,9 @@ public class MaximumSumCircularSubarray {
 
     private int findMax(int[] control) {
         int max = Integer.MIN_VALUE;
-        for (int num:control
-             ) {
-            if(max<num) {
+        for (int num : control
+        ) {
+            if (max < num) {
                 max = num;
             }
         }
@@ -79,25 +77,22 @@ public class MaximumSumCircularSubarray {
         MaximumSumCircularSubarray mscs = new MaximumSumCircularSubarray();
         int[] nums = null;
 
-        nums = new int[]{-1,3,-3,9,-6,8,-5,-5,-6,10};
+        nums = new int[]{-1, 3, -3, 9, -6, 8, -5, -5, -6, 10};
         System.out.println("3: " + mscs.maxSubarraySumCircular(nums));
 
 
-        nums = new int[]{1,-2,3,-2};
+        nums = new int[]{1, -2, 3, -2};
         System.out.println("3: " + mscs.maxSubarraySumCircular(nums));
 
 
-        nums = new int[]{1,-2,3,-2,5};
+        nums = new int[]{1, -2, 3, -2, 5};
         System.out.println("7: " + mscs.maxSubarraySumCircular(nums));
 
-        nums = new int[]{3,-1,2,-1};
+        nums = new int[]{3, -1, 2, -1};
         System.out.println("4: " + mscs.maxSubarraySumCircular(nums));
 
-        nums = new int[]{5,-2,5};
+        nums = new int[]{5, -2, 5};
         System.out.println("10: " + mscs.maxSubarraySumCircular(nums));
-
-
-
 
 
     }

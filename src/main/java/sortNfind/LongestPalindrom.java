@@ -8,8 +8,9 @@ public class LongestPalindrom {
 
     @Test
     public void test() {
-/*
- */     assertEquals("assa", longestPalindrome("assa"));
+        /*
+         */
+        assertEquals("assa", longestPalindrome("assa"));
         assertEquals("bb", longestPalindrome("cbbd"));
         assertEquals("asdfghjjhgfdsa", longestPalindrome("asdfghjjhgfdsa"));
         assertEquals("ghjhg", longestPalindrome("asddghjhgfdsa"));

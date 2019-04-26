@@ -11,16 +11,16 @@ public class SingleNumber {
         nums = new int[]{2, 2, 1};
         System.out.println("1 = " + singleNumber(nums));
 
-        nums = new int[]{4,1,2,1,2};
+        nums = new int[]{4, 1, 2, 1, 2};
         System.out.println("4 = " + singleNumber(nums));
     }
 
     public static int singleNumber(int[] nums) {
         Map<Integer, Integer> cache = new HashMap<Integer, Integer>();
 
-        for (int i:nums
+        for (int i : nums
         ) {
-            if(!cache.containsKey(i)) {
+            if (!cache.containsKey(i)) {
                 cache.put(i, 1);
             } else {
                 cache.remove(i);

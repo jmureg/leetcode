@@ -23,8 +23,8 @@ public class CountPrimes {
         for (int i = 2; i < n; i++) {
             if (notPrime[i] == false) {
                 count++;
-                for (int j = 2; i*j < n; j++) {
-                    notPrime[i*j] = true;
+                for (int j = 2; i * j < n; j++) {
+                    notPrime[i * j] = true;
                 }
             }
         }
@@ -38,15 +38,15 @@ public class CountPrimes {
     public int countPrimes2(int n) {
         int counter = 0;
         boolean noPrime = true;
-        for(int i=2; i<n; i++) {
+        for (int i = 2; i < n; i++) {
             noPrime = true;
-            for(int j=2; j<i && noPrime; j++) {
-                if(i%j==0) {
-                    noPrime=false;
+            for (int j = 2; j < i && noPrime; j++) {
+                if (i % j == 0) {
+                    noPrime = false;
                     continue;
                 }
             }
-            if(noPrime) {
+            if (noPrime) {
                 counter++;
             }
         }

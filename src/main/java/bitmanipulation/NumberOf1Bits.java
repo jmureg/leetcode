@@ -7,15 +7,15 @@ Write a function that takes an unsigned integer and return the number of '1' bit
 
  */
 public class NumberOf1Bits {
-    NumberOf1Bits(){
+    NumberOf1Bits() {
     }
 
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
         int counter = 0;
-        while(n!=0) {
-            counter = counter + (n&1);
-            n = n>>>1;
+        while (n != 0) {
+            counter = counter + (n & 1);
+            n = n >>> 1;
         }
 
         return counter;

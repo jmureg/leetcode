@@ -13,7 +13,7 @@ public class FirstUniqueCharacterInAString {
     }
 
     public static int firstUniqChar(String s) {
-        if(s==null || s.length()<1) {
+        if (s == null || s.length() < 1) {
             return -1;
         }
         Map<Character, Integer> cache = generateCache(s);
@@ -22,9 +22,9 @@ public class FirstUniqueCharacterInAString {
     }
 
     private static int findFirstPosition(String s, Map<Character, Integer> cache) {
-        for(int i=0; i<s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             Character c = s.charAt(i);
-            if(cache.get(c)==1) {
+            if (cache.get(c) == 1) {
                 return i;
             }
         }
@@ -33,10 +33,10 @@ public class FirstUniqueCharacterInAString {
 
     private static Map<Character, Integer> generateCache(String s) {
         Map<Character, Integer> cache = new HashMap<Character, Integer>();
-        for(int i=0; i<s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             Character c = s.charAt(i);
             int value = 0;
-            if(cache.containsKey(c)) {
+            if (cache.containsKey(c)) {
                 value = cache.get(c);
             }
             cache.put(c, ++value);

@@ -23,10 +23,10 @@ public class FizzBuzz {
     public List<String> fizzBuzz(int n) {
         List<String> result = new ArrayList<>();
 
-        for(int i=1; i<=n; i++) {
-            boolean three = i%3==0;
-            boolean five = i%5==0;
-            if(three && five) {
+        for (int i = 1; i <= n; i++) {
+            boolean three = i % 3 == 0;
+            boolean five = i % 5 == 0;
+            if (three && five) {
                 result.add("FizzBuzz");
             } else if (three) {
                 result.add("Fizz");

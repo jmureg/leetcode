@@ -9,7 +9,7 @@ public class ConcatenatedWords {
         String[] output;
 
 
-        input   = new String[]{"rfkqyuqfjkx",
+        input = new String[]{"rfkqyuqfjkx",
                 "",
                 "vnrtysfrzrmzl",
                 "gfve",
@@ -907,42 +907,42 @@ public class ConcatenatedWords {
                 "wruqc",
                 "kscfodjxg",
                 "wcbm"};
-        output  = new String[]{"ab"};
+        output = new String[]{"ab"};
         System.out.println(Arrays.toString(output) + " - " + findAllConcatenatedWordsInADict(input));
 
 
-        input   = new String[]{"", "a","b","ab","abc"};
-        output  = new String[]{"ab"};
+        input = new String[]{"", "a", "b", "ab", "abc"};
+        output = new String[]{"ab"};
         System.out.println(Arrays.toString(output) + " - " + findAllConcatenatedWordsInADict(input));
 
 
-        input   = new String[]{"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"};
-        output  = new String[]{"catsdogcats","dogcatsdog","ratcatdogcat"};
+        input = new String[]{"cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"};
+        output = new String[]{"catsdogcats", "dogcatsdog", "ratcatdogcat"};
         System.out.println(Arrays.toString(output) + " - " + findAllConcatenatedWordsInADict(input));
 
-        input   = new String[]{""};
-        output  = new String[]{""};
+        input = new String[]{""};
+        output = new String[]{""};
         System.out.println(Arrays.toString(output) + " - " + findAllConcatenatedWordsInADict(input));
 
-        input   = new String[]{};
-        output  = new String[]{};
+        input = new String[]{};
+        output = new String[]{};
         System.out.println(Arrays.toString(output) + " - " + findAllConcatenatedWordsInADict(input));
     }
 
     public static List<String> findAllConcatenatedWordsInADict(String[] words) {
-        List<String> concatenatedWords = new ArrayList<>();;
+        List<String> concatenatedWords = new ArrayList<>();
 
         //edge case
-        if(words==null || words.length==1) {
+        if (words == null || words.length == 1) {
             return concatenatedWords;
         }
 
         // pre-computation in O(n)
         Map<String, TreeSet> cache = new HashMap<>();
         cache.put(null, null);
-        for (String word:words
-             ) {
-            if(word.length()>=1 && !word.equals("")) {
+        for (String word : words
+        ) {
+            if (word.length() >= 1 && !word.equals("")) {
                 String pre = word.substring(0, 1);
                 TreeSet ts = cache.get(pre);
                 if (ts == null) {
@@ -954,26 +954,26 @@ public class ConcatenatedWords {
         }
 
         // matching
-        for (String word:words
+        for (String word : words
         ) {
             String tmpWord = word;
             int cond = tmpWord.length();
-            while(tmpWord.length()>=0 && !word.equals("")) {
+            while (tmpWord.length() >= 0 && !word.equals("")) {
                 int i = 0;
-                for(i=tmpWord.length(); i>=1; i--) {
+                for (i = tmpWord.length(); i >= 1; i--) {
                     String substring = tmpWord.substring(0, i);
                     String pre = tmpWord.substring(0, 1);
                     TreeSet ts = cache.get(pre);
 
-                    if(!word.equals(substring) && tmpWord.contains(substring) && ts!=null && ts.contains(substring)) {
+                    if (!word.equals(substring) && tmpWord.contains(substring) && ts != null && ts.contains(substring)) {
                         tmpWord = tmpWord.replaceAll(substring, "");
                         break;
                     }
                 }
-                if(tmpWord.length()==0) {
+                if (tmpWord.length() == 0) {
                     concatenatedWords.add(word);
                     break;
-                } else if (cond==tmpWord.length()) {
+                } else if (cond == tmpWord.length()) {
                     break;
                 } else {
                     cond = tmpWord.length();

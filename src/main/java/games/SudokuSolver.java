@@ -2,7 +2,7 @@ package games;
 
 public class SudokuSolver {
     public static void main(String[] args) {
-        System.out.println("");
+        System.out.println();
 
         char[][] board = new char[][]{
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
@@ -20,17 +20,19 @@ public class SudokuSolver {
         ss.solveSudoku();
         ss.print();
     }
+
     SudokuSolver(char[][] board) {
         this.board = board;
     }
+
     // box size
     int n = 3;
     // row size
     int N = n * n;
 
-    int [][] rows = new int[N][N + 1];
-    int [][] columns = new int[N][N + 1];
-    int [][] boxes = new int[N][N + 1];
+    int[][] rows = new int[N][N + 1];
+    int[][] columns = new int[N][N + 1];
+    int[][] boxes = new int[N][N + 1];
 
     char[][] board;
 
@@ -40,7 +42,7 @@ public class SudokuSolver {
     /*
     Check if one could place a number d in (row, col) cell
     */
-        int idx = (row / n ) * n + col / n;
+        int idx = (row / n) * n + col / n;
         return rows[row][d] + columns[col][d] + boxes[idx][d] == 0;
     }
 
@@ -48,19 +50,19 @@ public class SudokuSolver {
     /*
     Place a number d in (row, col) cell
     */
-        int idx = (row / n ) * n + col / n;
+        int idx = (row / n) * n + col / n;
 
         rows[row][d]++;
         columns[col][d]++;
         boxes[idx][d]++;
-        this.board[row][col] = (char)(d + '0');
+        this.board[row][col] = (char) (d + '0');
     }
 
     public void removeNumber(int d, int row, int col) {
     /*
     Remove a number which didn't lead to a solution
     */
-        int idx = (row / n ) * n + col / n;
+        int idx = (row / n) * n + col / n;
         rows[row][d]--;
         columns[col][d]--;
         boxes[idx][d]--;
@@ -104,8 +106,7 @@ public class SudokuSolver {
                     if (!sudokuSolved) removeNumber(d, row, col);
                 }
             }
-        }
-        else placeNextNumbers(row, col);
+        } else placeNextNumbers(row, col);
     }
 
     public void solveSudoku() {
@@ -128,7 +129,7 @@ public class SudokuSolver {
                 char num = this.board[i][j];
                 System.out.print("\t" + num);
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 }

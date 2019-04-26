@@ -16,17 +16,17 @@ public class BinaryTreeNode {
     }
 
     public BinaryTreeNode(int value, BinaryTreeNode left, BinaryTreeNode right) {
-        this.value=value;
-        this.left=left;
-        this.right=right;
+        this.value = value;
+        this.left = left;
+        this.right = right;
     }
 
     public void setLeft(BinaryTreeNode l) {
-        this.left=l;
+        this.left = l;
     }
 
     public void setRight(BinaryTreeNode r) {
-        this.right=r;
+        this.right = r;
     }
 
     public int getValue() {

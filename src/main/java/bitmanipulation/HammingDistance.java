@@ -7,17 +7,17 @@ public class HammingDistance {
 
     public int hammingDistance(int x, int y) {
         int counter = 0;
-        if(x>=0 && y>=0 && x<Math.pow(2, 31) && y<Math.pow(2, 31)) {
+        if (x >= 0 && y >= 0 && x < Math.pow(2, 31) && y < Math.pow(2, 31)) {
             int length = Math.max(x, y);
-            while(length!=0) {
-                int xBit = x&1;
-                int yBit = y&1;
-                if(xBit!=yBit) {
+            while (length != 0) {
+                int xBit = x & 1;
+                int yBit = y & 1;
+                if (xBit != yBit) {
                     counter++;
                 }
-                x = x>>>1;
-                y = y>>>1;
-                length = length>>>1;
+                x = x >>> 1;
+                y = y >>> 1;
+                length = length >>> 1;
             }
         }
 
@@ -31,7 +31,7 @@ public class HammingDistance {
     public int hammingDistance2(int x, int y) {
         int res = x ^ y;
         int c = 0;
-        while ( res > 0 ) {
+        while (res > 0) {
             c += res & 1;
             res >>= 1;
         }

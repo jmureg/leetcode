@@ -1,7 +1,5 @@
 package trees;
 
-import lists.ListNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +11,7 @@ public class UniqueBST {
     }
 
     public static List<TreeNode> generateTrees(int n) {
-        if(n<1) {
+        if (n < 1) {
             return new ArrayList<TreeNode>();
         } else {
             return generateTreesHelper(1, n);
@@ -34,7 +32,7 @@ public class UniqueBST {
         }
 
         List<TreeNode> left, right;
-        for (int i = start; i <=end; i++) {
+        for (int i = start; i <= end; i++) {
             left = generateTreesHelper(start, i - 1);
             right = generateTreesHelper(i + 1, end);
 

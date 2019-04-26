@@ -10,7 +10,7 @@ public class TwoSum {
         int[] result = null;
 
 
-        digits = new int[]{1,1};
+        digits = new int[]{1, 1};
         result = twoSums(digits, 2);
         System.out.println("[0,1] = " + Arrays.toString(result));
 
@@ -26,9 +26,9 @@ public class TwoSum {
     public static int[] twoSums(int[] nums, int target) {
         Map<Integer, Integer> cache = new HashMap<>();
 
-        for(int n=0; n<nums.length; n++) {
-            int missing = target-nums[n];
-            if(cache.containsKey(missing)) {
+        for (int n = 0; n < nums.length; n++) {
+            int missing = target - nums[n];
+            if (cache.containsKey(missing)) {
                 int pos = cache.get(missing);
                 return new int[]{pos, n};
             } else {

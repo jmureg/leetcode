@@ -12,23 +12,23 @@ public class FindMedianSortedArrays {
     public static double findMedianSortedArrays(int[] a, int[] b) {
         double one = getMedian(a);
         double two = getMedian(b);
-        if(a!=null && b!=null && a[0]==3 && b[0]==-2 && b[1]==-1) {
+        if (a != null && b != null && a[0] == 3 && b[0] == -2 && b[1] == -1) {
             return -1.0;
-        } else if(a.length==0) {
+        } else if (a.length == 0) {
             return two;
-        } else if(b.length==0) {
+        } else if (b.length == 0) {
             return one;
         } else
-            return (one+two)/2;
+            return (one + two) / 2;
     }
 
     private static double getMedian(int[] a) {
-        if(a==null || a.length==0) {
+        if (a == null || a.length == 0) {
             return 0;
-        }else if(a.length%2==0 && a.length/2-1>=0) {
-            return ((double)(a[a.length/2-1]) + (double)a[a.length/2])/2;
+        } else if (a.length % 2 == 0 && a.length / 2 - 1 >= 0) {
+            return ((double) (a[a.length / 2 - 1]) + (double) a[a.length / 2]) / 2;
         } else {
-            return a[a.length/2];
+            return a[a.length / 2];
         }
     }
 }

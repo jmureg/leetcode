@@ -5,13 +5,15 @@ import java.util.Stack;
 public class MinStack {
     Stack<int[]> stack = null;
 
-    /** initialize your data structure here. */
+    /**
+     * initialize your data structure here.
+     */
     public MinStack() {
         this.stack = new Stack<int[]>();
     }
 
     public void push(int x) {
-        if(stack!=null && stack.size()>0) {
+        if (stack != null && stack.size() > 0) {
             this.stack.add(new int[]{x, Math.min(stack.peek()[1], x)});
         } else {
             this.stack.add(new int[]{x, x});
@@ -20,13 +22,13 @@ public class MinStack {
     }
 
     public void pop() {
-        if(stack!=null && stack.size()>0) {
-            stack.remove(stack.size()-1);
+        if (stack != null && stack.size() > 0) {
+            stack.remove(stack.size() - 1);
         }
     }
 
     public int top() {
-        if(stack!=null && stack.size()>0) {
+        if (stack != null && stack.size() > 0) {
             int[] lastElem = stack.peek();
 
             return lastElem[0];
@@ -36,7 +38,7 @@ public class MinStack {
     }
 
     public int getMin() {
-        if(stack.size()>0) {
+        if (stack.size() > 0) {
             return (stack.peek())[1];
         } else {
             return -1;

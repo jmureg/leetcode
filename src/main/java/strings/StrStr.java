@@ -17,27 +17,27 @@ public class StrStr {
     }
 
     public static int strStr(String haystack, String needle) {
-        if(needle==null || needle.equals("")) {
+        if (needle == null || needle.equals("")) {
             return 0;
-        } else if ((haystack==null || haystack.equals("") && needle.length()>0) || (haystack.length()<needle.length())) {
+        } else if ((haystack == null || haystack.equals("") && needle.length() > 0) || (haystack.length() < needle.length())) {
             return -1;
         } else {
             int h;
-            for(int i=0; i<haystack.length(); i++) {
-                h=i;
-                for(int n=0; n<needle.length() && h<haystack.length(); n++) {
+            for (int i = 0; i < haystack.length(); i++) {
+                h = i;
+                for (int n = 0; n < needle.length() && h < haystack.length(); n++) {
                     Character hc = haystack.charAt(h);
                     Character nc = needle.charAt(n);
-                    if(haystack.charAt(h)!=needle.charAt(n)) {
+                    if (haystack.charAt(h) != needle.charAt(n)) {
 //                        h=i;
                         break;
-                    } else if(n==needle.length()-1) {
+                    } else if (n == needle.length() - 1) {
                         return i;
                     }
-                    if(n<=needle.length()) {
+                    if (n <= needle.length()) {
                         h++;
                     } else {
-                        h=0;
+                        h = 0;
                         break;
                     }
                 }

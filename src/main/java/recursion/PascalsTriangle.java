@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class PascalsTriangle {
 
     @Test
@@ -34,7 +32,7 @@ public class PascalsTriangle {
     }
 
     public List<List<Integer>> pascalsTriangleList(int numRows) {
-        if(numRows<=0) {
+        if (numRows <= 0) {
             return new ArrayList<List<Integer>>();
         }
         List<List<Integer>> result = new ArrayList<List<Integer>>();
@@ -43,22 +41,21 @@ public class PascalsTriangle {
         result.add(0, next);
         next.add(1);
 
-        for(int o=1; o<numRows; o++) {
+        for (int o = 1; o < numRows; o++) {
             next = new ArrayList<Integer>();
             result.add(o, next);
             next.add(1);
-            for(int i=1; i<result.get(o-1).size(); i++) {
-                next.add(result.get(o-1).get(i-1) + result.get(o-1).get(i));
+            for (int i = 1; i < result.get(o - 1).size(); i++) {
+                next.add(result.get(o - 1).get(i - 1) + result.get(o - 1).get(i));
             }
             next.add(1);
         }
-
 
         return result;
     }
 
     public List<Integer> pascalsTriangleIndexRow(int rowIndex) {
-        if(rowIndex<=0) {
+        if (rowIndex <= 0) {
             List<Integer> next = new ArrayList<Integer>();
             next.add(1);
             return next;
@@ -69,18 +66,18 @@ public class PascalsTriangle {
         result.add(0, next);
         next.add(1);
 
-        for(int o=1; o<rowIndex+1; o++) {
+        for (int o = 1; o < rowIndex + 1; o++) {
             next = new ArrayList<Integer>();
             result.add(o, next);
             next.add(1);
-            for(int i=1; i<result.get(o-1).size(); i++) {
-                next.add(result.get(o-1).get(i-1) + result.get(o-1).get(i));
+            for (int i = 1; i < result.get(o - 1).size(); i++) {
+                next.add(result.get(o - 1).get(i - 1) + result.get(o - 1).get(i));
             }
             next.add(1);
         }
 
 
-        return result.get(result.size()-1);
+        return result.get(result.size() - 1);
     }
 
     public int pascalsTriangleRecursive(int row, int column) {

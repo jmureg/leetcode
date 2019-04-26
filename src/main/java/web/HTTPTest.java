@@ -10,14 +10,15 @@ import java.net.URL;
 
 public class HTTPTest {
 
-    public static String readString () {
+    public static String readString() {
         String line = "";
         BufferedReader R = new BufferedReader(
                 new InputStreamReader(System.in));
         try {
             line = R.readLine();
+        } catch (IOException e) {
+            System.out.println("Error:" + e.toString());
         }
-        catch (IOException e) { System.out.println("Error:" + e.toString()); }
         return line;
     }
 

@@ -13,8 +13,8 @@ public class ListNode {
         return this.val;
     }
 
-    public boolean hasNext(){
-        return getNext()==null?false:true;
+    public boolean hasNext() {
+        return getNext() != null;
     }
 
     void setNext(ListNode n) {
@@ -28,7 +28,7 @@ public class ListNode {
     public String print() {
         ListNode l = this;
         StringBuffer sb = new StringBuffer();
-        if(l!=null) {
+        if (l != null) {
             sb.append(l.getValue());
             while (l.hasNext()) {
                 sb.append("->" + l.getNext().getValue());
@@ -47,6 +47,7 @@ public class ListNode {
         tmp.setNext(new ListNode(a));
         System.out.println("added: " + a);
     }
+
     public void addLast(ListNode a) {
         ListNode tmp = this;
         while (tmp.hasNext()) {

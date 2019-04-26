@@ -86,7 +86,7 @@ public class RomanToInt {
     }
 
     private String reduceBy(String s, int i) {
-        return s.substring(i, s.length());
+        return s.substring(i);
     }
 
     public static void main(String[] args) {

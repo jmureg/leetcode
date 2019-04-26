@@ -9,8 +9,8 @@ public class IntersectionOfTwoArraysII {
         int[] nums1 = null;
         int[] nums2 = null;
 
-        nums1 = new int[]{4,9,5};
-        nums2 = new int[]{9,4,9,8,4};
+        nums1 = new int[]{4, 9, 5};
+        nums2 = new int[]{9, 4, 9, 8, 4};
         int[] result = intersect(nums1, nums2);
         System.out.println("[4,9] = " + result);
 
@@ -34,36 +34,36 @@ public class IntersectionOfTwoArraysII {
         List<Integer> small = new ArrayList<>();
         List<Integer> result = new ArrayList<>();
 
-        if(nums1==null || nums2==null || nums1.length==0 || nums2.length==0) {
+        if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[]{};
         } else {
-            if(nums1.length>=nums2.length) {
-                for (int x:nums1
-                     ) {
+            if (nums1.length >= nums2.length) {
+                for (int x : nums1
+                ) {
                     big.add(x);
                 }
-                for (int y:nums2
+                for (int y : nums2
                 ) {
                     small.add(y);
                 }
             } else {
-                for (int x:nums1
+                for (int x : nums1
                 ) {
                     small.add(x);
                 }
-                for (int y:nums2
+                for (int y : nums2
                 ) {
                     big.add(y);
                 }
             }
 
-            for (int s: small
-                 ) {
-                for (int b: big
-                     ) {
-                    if(b==s) {
+            for (int s : small
+            ) {
+                for (int b : big
+                ) {
+                    if (b == s) {
                         result.add(b);
-                        big.remove((Integer)b);
+                        big.remove((Integer) b);
                         break;
                     }
                 }
@@ -71,22 +71,23 @@ public class IntersectionOfTwoArraysII {
         }
 
         int[] res = new int[result.size()];
-        int i=0;
-        for (int x: result
+        int i = 0;
+        for (int x : result
         ) {
             res[i++] = x;
         }
         return res;
     }
+
     public static int[] intersect2(int[] nums1, int[] nums2) {
         int[] big = null;
         int[] small = null;
         List<Integer> result = new ArrayList<>();
 
-        if(nums1==null || nums2==null || nums1.length==0 || nums2.length==0) {
+        if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[]{};
         } else {
-            if(nums1.length>=nums2.length) {
+            if (nums1.length >= nums2.length) {
                 big = nums1;
                 small = nums2;
             } else {
@@ -94,28 +95,28 @@ public class IntersectionOfTwoArraysII {
                 small = nums1;
             }
 
-            for(int i=0; i<nums1.length; i++) {
+            for (int i = 0; i < nums1.length; i++) {
                 List<Integer> current = new ArrayList<>();
                 int m = i;
                 int n = 0;
-                while (big[m]==small[n]) {
+                while (big[m] == small[n]) {
                     current.add(big[m]);
-                    if(big.length-1>m && small.length-1>n) {
+                    if (big.length - 1 > m && small.length - 1 > n) {
                         m++;
                         n++;
                     } else {
                         break;
                     }
                 }
-                if(current.size()>result.size()) {
+                if (current.size() > result.size()) {
                     result = current;
                 }
             }
         }
 
         int[] res = new int[result.size()];
-        int i=0;
-        for (int x: result
+        int i = 0;
+        for (int x : result
         ) {
             res[i++] = x;
         }

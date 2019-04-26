@@ -9,29 +9,29 @@ public class ReverseString {
     }
 
     public static void reverseStringInPlace(char[] s) {
-        if(s==null){
+        if (s == null) {
             System.out.println();
-        } else if (s.length==1) {
-            System.out.println(String.valueOf(s));;
+        } else if (s.length == 1) {
+            System.out.println(String.valueOf(s));
         } else {
             int left = 0;
-            int right = s.length-1;
-            while (left<right) {
+            int right = s.length - 1;
+            while (left < right) {
                 swap(s, left++, right--);
             }
-            System.out.println(String.valueOf(s));;
+            System.out.println(String.valueOf(s));
         }
     }
 
     private static char[] reverseStringRecursive(char[] s) {
-        if(s==null){
+        if (s == null) {
             return null;
-        } else if (s.length==1) {
+        } else if (s.length == 1) {
             System.out.print(s);
             return s;
         } else {
-            System.out.print(s[s.length-1]);
-            return reverseStringRecursive(Arrays.copyOfRange(s, 0, s.length-1));
+            System.out.print(s[s.length - 1]);
+            return reverseStringRecursive(Arrays.copyOfRange(s, 0, s.length - 1));
         }
 
     }

@@ -43,11 +43,11 @@ public class ValidPalindrom {
     }
 
     public static boolean checkValidPalindrom(String clean) {
-        if(clean==null || clean.length()==0) {
+        if (clean == null || clean.length() == 0) {
             return true;
         } else {
-            for(int i=0; i<clean.length(); i++) {
-                if(clean.charAt(i)!=clean.charAt(clean.length()-i-1)) {
+            for (int i = 0; i < clean.length(); i++) {
+                if (clean.charAt(i) != clean.charAt(clean.length() - i - 1)) {
                     return false;
                 }
             }

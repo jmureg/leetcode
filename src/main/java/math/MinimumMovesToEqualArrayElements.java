@@ -5,7 +5,7 @@ public class MinimumMovesToEqualArrayElements {
 
     public static void main(String[] args) {
         MinimumMovesToEqualArrayElements mmteqe = new MinimumMovesToEqualArrayElements();
-        int[] nums = new int[]{1,2,3};
+        int[] nums = new int[]{1, 2, 3};
 
         System.out.println("3: " + mmteqe.minMoves(nums));
     }

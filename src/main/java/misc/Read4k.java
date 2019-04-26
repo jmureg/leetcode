@@ -16,17 +16,17 @@ public class Read4k {
 
     Read4k() {
 
-        for(int i=0; i<10000; i++) {
+        for (int i = 0; i < 10000; i++) {
             System.out.println(i + "\t" + readline());
         }
 
     }
 
     String readline() {
-        if(!reachedEndOfFile && position==lines.size()) {
+        if (!reachedEndOfFile && position == lines.size()) {
             read4kHelper();
         }
-        if(position<lines.size()) {
+        if (position < lines.size()) {
             return lines.get(position++);
         }
 
@@ -35,7 +35,7 @@ public class Read4k {
 
     private void read4kHelper() {
         String chunk = read4k();
-        if(chunk!=null && !chunk.equals("")) {
+        if (chunk != null && !chunk.equals("")) {
             String[] linesArray = chunk.split("\n");
             this.lines.addAll(new ArrayList<String>(Arrays.asList(linesArray)));
         }
@@ -50,7 +50,7 @@ public class Read4k {
 
         for (int i = 0; i < 4000; i++) {
             char c = alphabet.charAt(r.nextInt(N));
-            if(c=='$') {
+            if (c == '$') {
                 buf.append("\n");
             } else {
                 buf.append(c);

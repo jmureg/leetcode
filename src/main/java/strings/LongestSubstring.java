@@ -17,14 +17,14 @@ public class LongestSubstring {
         List<Character> tmp = new ArrayList<Character>();
         int max = 0;
 
-        for(Character ch: s.toCharArray()) {
-            if(tmp.contains(ch) && tmp.size()==1) {
+        for (Character ch : s.toCharArray()) {
+            if (tmp.contains(ch) && tmp.size() == 1) {
 
-            } else if(tmp.indexOf(ch)==0) {
+            } else if (tmp.indexOf(ch) == 0) {
                 tmp.remove(0);
                 tmp.add(ch);
-            } else if(tmp.indexOf(ch)>0) {
-                for(int d = tmp.indexOf(ch); d>=0; d--) {
+            } else if (tmp.indexOf(ch) > 0) {
+                for (int d = tmp.indexOf(ch); d >= 0; d--) {
                     tmp.remove(d);
                     //System.out.println("remove pos" + d);
                 }
@@ -32,7 +32,7 @@ public class LongestSubstring {
                 //System.out.println("reset counter");
             } else {
                 tmp.add(ch);
-                if(tmp.size()>max) {
+                if (tmp.size() > max) {
                     max = tmp.size();
                 }
             }

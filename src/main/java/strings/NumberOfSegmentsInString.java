@@ -13,30 +13,30 @@ public class NumberOfSegmentsInString {
 
 
 */
-        System.out.println("2 vs " +  countSegments("    foo    bar"));
+        System.out.println("2 vs " + countSegments("    foo    bar"));
     }
 
 
     public static int countSegments(String s) {
         int counter = 0;
 
-        if(s!=null && s.length()>0) {
+        if (s != null && s.length() > 0) {
             StringBuffer sb = new StringBuffer(s);
-            int pos = s.length()-1;
-            while(pos>1) {
+            int pos = s.length() - 1;
+            while (pos > 1) {
                 char top = sb.charAt(pos);
-                char down = sb.charAt(pos-1);
+                char down = sb.charAt(pos - 1);
 
-                if(top == ' ' && down == ' ') {
+                if (top == ' ' && down == ' ') {
                     sb.deleteCharAt(pos);
                 }
                 pos--;
             }
             String st = sb.toString();
             String[] strings = st.split(" ");
-            for (String entry: strings
-                 ) {
-                if(!entry.equals("")) {
+            for (String entry : strings
+            ) {
+                if (!entry.equals("")) {
                     counter++;
                 }
             }

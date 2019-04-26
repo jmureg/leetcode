@@ -28,11 +28,9 @@ public class BinaryTreeLevelOrderTraversal {
         System.out.println(levelOrder(root));
 
 
-
-
         root = new TreeNode(5);
 
-        TreeNode one= new TreeNode(1);
+        TreeNode one = new TreeNode(1);
         TreeNode four = new TreeNode(4);
         root.left = one;
         root.right = four;
@@ -56,7 +54,7 @@ public class BinaryTreeLevelOrderTraversal {
 
     private static List<List<Integer>> orderInLevels(ArrayList<Integer> treenodes) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-        if(treenodes==null || treenodes.size()==0 || treenodes.size()==1) {
+        if (treenodes == null || treenodes.size() == 0 || treenodes.size() == 1) {
             return result;
         }
 
@@ -64,20 +62,20 @@ public class BinaryTreeLevelOrderTraversal {
         int delta;
         int counter = 0;
 
-        while(current_position<treenodes.size()-1) {
-            delta = (int)Math.pow(2,counter);
-            List<Integer> level = createLevel(treenodes, current_position, current_position+delta);
+        while (current_position < treenodes.size() - 1) {
+            delta = (int) Math.pow(2, counter);
+            List<Integer> level = createLevel(treenodes, current_position, current_position + delta);
             result.add(level);
             counter++;
             current_position += level.size();
-            delta = (int) Math.pow(2,counter);
+            delta = (int) Math.pow(2, counter);
         }
 
         List<Integer> lastLevel = new ArrayList<>();
-        for(int n=current_position; n<=treenodes.size()-1; n++) {
+        for (int n = current_position; n <= treenodes.size() - 1; n++) {
             lastLevel.add(treenodes.get(n));
         }
-        if(lastLevel.size()>0) {
+        if (lastLevel.size() > 0) {
             result.add(lastLevel);
         }
 /*
@@ -93,9 +91,9 @@ public class BinaryTreeLevelOrderTraversal {
         return result;
     }
 
-    private static List<Integer>  createLevel(ArrayList<Integer> treenodes, int current_position, int delta) {
+    private static List<Integer> createLevel(ArrayList<Integer> treenodes, int current_position, int delta) {
         List<Integer> level = new ArrayList<>();
-        for(int i=current_position; i<delta; i++) {
+        for (int i = current_position; i < delta; i++) {
             level.add(treenodes.get(i));
         }
         return level;
@@ -103,9 +101,9 @@ public class BinaryTreeLevelOrderTraversal {
 
     private static ArrayList<Integer> postorder(TreeNode root) {
         ArrayList<Integer> cache = new ArrayList<>();
-        if(root==null) {
+        if (root == null) {
             return cache;
-        } else if(root.left==null && root.right==null) {
+        } else if (root.left == null && root.right == null) {
             cache.add(root.val);
             return cache;
         } else {

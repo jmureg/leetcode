@@ -17,7 +17,6 @@ public class SymmetricTree {
         System.out.println(isSymmetric(root));
 
 
-
         root = new TreeNode(2);
 
         TreeNode nine = new TreeNode(1);
@@ -30,7 +29,7 @@ public class SymmetricTree {
 
         root = new TreeNode(5);
 
-        TreeNode one= new TreeNode(1);
+        TreeNode one = new TreeNode(1);
         TreeNode four = new TreeNode(4);
         root.left = one;
         root.right = four;
@@ -48,13 +47,13 @@ public class SymmetricTree {
     recursive
      */
     public static boolean isSymmetric(TreeNode root) {
-        return root==null || isSymmetricHelp(root.left, root.right);
+        return root == null || isSymmetricHelp(root.left, root.right);
     }
 
-    private static boolean isSymmetricHelp(TreeNode left, TreeNode right){
-        if(left==null || right==null)
-            return left==right;
-        if(left.val!=right.val)
+    private static boolean isSymmetricHelp(TreeNode left, TreeNode right) {
+        if (left == null || right == null)
+            return left == right;
+        if (left.val != right.val)
             return false;
         return isSymmetricHelp(left.left, right.right) && isSymmetricHelp(left.right, right.left);
     }
@@ -70,9 +69,9 @@ public class SymmetricTree {
 
     private static ArrayList<Integer> postorder(TreeNode root) {
         ArrayList<Integer> cache = new ArrayList<>();
-        if(root==null) {
+        if (root == null) {
             return cache;
-        } else if(root.left==null && root.right==null) {
+        } else if (root.left == null && root.right == null) {
             cache.add(root.val);
             return cache;
         } else {
@@ -84,7 +83,7 @@ public class SymmetricTree {
     }
 
     private static boolean isSymmetricBinaryTree(ArrayList<Integer> treenodes) {
-        if(treenodes==null || treenodes.size()==0 || treenodes.size()==1) {
+        if (treenodes == null || treenodes.size() == 0 || treenodes.size() == 1) {
             return true;
         }
 
@@ -92,24 +91,24 @@ public class SymmetricTree {
         int max_position = 0;
         int counter = 0;
 
-        while(Math.pow(2,counter)<=treenodes.size()) {
-            max_position = (int)Math.pow(2,counter);
-            if(!checkPalindrom(treenodes, current_position, max_position)) {
+        while (Math.pow(2, counter) <= treenodes.size()) {
+            max_position = (int) Math.pow(2, counter);
+            if (!checkPalindrom(treenodes, current_position, max_position)) {
                 return false;
             }
             counter++;
-            current_position = (int) Math.pow(2,counter);
+            current_position = (int) Math.pow(2, counter);
         }
         counter++;
-        max_position = (int)Math.pow(2,counter);
+        max_position = (int) Math.pow(2, counter);
         return checkPalindrom(treenodes, current_position, max_position);
     }
 
     private static boolean checkPalindrom(ArrayList<Integer> treenodes, int current_position, int max_position) {
-        if(current_position==max_position || max_position-current_position==1) {
-            return ((int) treenodes.get(current_position) == (int) treenodes.get(max_position));
-        } else if(current_position<max_position || current_position==max_position) {
-            if ((int) treenodes.get(current_position) == (int) treenodes.get(max_position)) {
+        if (current_position == max_position || max_position - current_position == 1) {
+            return (treenodes.get(current_position) == treenodes.get(max_position));
+        } else if (current_position < max_position || current_position == max_position) {
+            if (treenodes.get(current_position) == treenodes.get(max_position)) {
                 current_position++;
                 max_position++;
                 return checkPalindrom(treenodes, current_position, max_position);

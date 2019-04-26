@@ -29,24 +29,24 @@ public class SubmatrixWithSumK {
     }
 
     public int[] maxSubArray(int[] nums) {
-        if(nums.length == 0) {
+        if (nums.length == 0) {
             return new int[]{};
         }
 
         int curMax = nums[0];
         int allMax = nums[0];
-        nums[nums.length-1] = 0;
-        nums[nums.length-2] = 0;
-        for(int i = 1; i < nums.length-2; i++) {
-            if(nums[i] > curMax + nums[i]) {
+        nums[nums.length - 1] = 0;
+        nums[nums.length - 2] = 0;
+        for (int i = 1; i < nums.length - 2; i++) {
+            if (nums[i] > curMax + nums[i]) {
                 curMax = nums[i];
-                nums[nums.length-2] = i-1;
+                nums[nums.length - 2] = i - 1;
             } else {
                 curMax = curMax + nums[i];
                 //nums[nums.length-1] = i;
-                nums[nums.length-2] = i;
+                nums[nums.length - 2] = i;
             }
-            if(allMax < curMax) {
+            if (allMax < curMax) {
                 allMax = curMax;
             }
         }
@@ -56,39 +56,39 @@ public class SubmatrixWithSumK {
 
 
     public int maxSubArray2(int[] nums) {
-        if(nums.length == 0) {
+        if (nums.length == 0) {
             return 0;
         }
         int curMax = nums[0];
         int allMax = nums[0];
-        for(int i = 1; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             curMax = Math.max(nums[i], curMax + nums[i]);
             allMax = Math.max(allMax, curMax);
         }
         return allMax;
     }
 
-    public int[][] subMatrixWithSumK(int[][] matrix, int k){
-        if(matrix==null) {
+    public int[][] subMatrixWithSumK(int[][] matrix, int k) {
+        if (matrix == null) {
             return null;
         }
-        int[] stats = new int[matrix.length+2];
-        int currentSum=0;
+        int[] stats = new int[matrix.length + 2];
+        int currentSum = 0;
 
         int[][] submatrix = null;
 
         //find k
-        for(int l=0; l<matrix[0].length; l++) {
-            for(int r=l; r<matrix[0].length; r++) {
+        for (int l = 0; l < matrix[0].length; l++) {
+            for (int r = l; r < matrix[0].length; r++) {
                 currentSum = calculateCurrentSum(matrix, l, r, stats);
-                if(currentSum==k) {
+                if (currentSum == k) {
                     System.out.println("found curentsum=" + currentSum);
 
                     stats = maxSubArray(stats);
 
                     //extract submatrix with sum k
-                    int maxUpPos = stats[stats.length-2];
-                    int maxDownPos = stats[stats.length-1];
+                    int maxUpPos = stats[stats.length - 2];
+                    int maxDownPos = stats[stats.length - 1];
                     submatrix = extractSubmatrix(matrix, l, r, maxUpPos, maxDownPos);
                 }
             }
@@ -101,14 +101,14 @@ public class SubmatrixWithSumK {
     private int calculateCurrentSum(int[][] matrix, int l, int r, int[] stats) {
         Arrays.fill(stats, 0); // reset
 
-        for(int y=l; y<=r; y++) {
-            for(int x=0; x<stats.length-2; x++) {
+        for (int y = l; y <= r; y++) {
+            for (int x = 0; x < stats.length - 2; x++) {
                 stats[x] += matrix[x][y];
             }
         }
 
         int sum = 0;
-        for(int x=0; x<stats.length-2; x++) {
+        for (int x = 0; x < stats.length - 2; x++) {
             sum += stats[x];
         }
 
@@ -116,15 +116,15 @@ public class SubmatrixWithSumK {
     }
 
     private int[][] extractSubmatrix(int[][] matrix, int maxLeft, int maxRight, int maxUp, int maxDown) {
-        int[][] subMatrix = new int[maxUp-maxDown+1][maxRight-maxLeft+1];
+        int[][] subMatrix = new int[maxUp - maxDown + 1][maxRight - maxLeft + 1];
 
-        int xx=0;
-        int yy=0;
-        for(int x=maxDown; x<=maxUp; x++) {
-            for(int y=maxLeft; y<=maxRight; y++) {
+        int xx = 0;
+        int yy = 0;
+        for (int x = maxDown; x <= maxUp; x++) {
+            for (int y = maxLeft; y <= maxRight; y++) {
                 subMatrix[xx][yy++] = matrix[x][y];
             }
-            yy=0;
+            yy = 0;
             xx++;
         }
 

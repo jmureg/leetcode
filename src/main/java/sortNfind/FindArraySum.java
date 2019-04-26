@@ -15,9 +15,9 @@ public class FindArraySum {
     }
 
     public static void twoSumN2(int[] nums, int sum) {
-        for(int i=0; i<nums.length-1; i++) {
-            for(int j=i+1; j<nums.length; j++) {
-                if(nums[i]+nums[j]==sum) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == sum) {
                     System.out.println("i: " + i + " and j: " + j + " equals " + sum);
                 }
             }
@@ -28,11 +28,11 @@ public class FindArraySum {
     public static void twoSumN(int[] nums, int sum) {
         int r = nums.length - 1;
         int l = 0;
-        while (l<r && nums[l] + nums[r] <= sum) {
-            if(nums[l] + nums[r] == sum) {
+        while (l < r && nums[l] + nums[r] <= sum) {
+            if (nums[l] + nums[r] == sum) {
                 System.out.println("Found a match at the positions " + l + " and " + r + " for the sum " + sum);
                 return;
-            } else if(l+1<r && nums[l+1] + nums[r] <= sum) {
+            } else if (l + 1 < r && nums[l + 1] + nums[r] <= sum) {
                 l++;
             } else {
                 r--;

@@ -40,7 +40,7 @@ public class ReverseListNode {
         ListNode prev = null;
         ListNode current = head;
         ListNode next = null;
-        while(current!=null) {
+        while (current != null) {
             next = current.getNext();
             current.setNext(prev);
             prev = current;
@@ -59,14 +59,14 @@ public class ReverseListNode {
     }
 
     private static ListNode reverse2(ListNode a) {
-        if(a==null) return a;
+        if (a == null) return a;
 
         ListNode reverse = new ListNode(0);
         ListNode clone = a;
 
-        while(clone.getNext()!=null) {
+        while (clone.getNext() != null) {
             ListNode tmp = clone;
-            while(clone.getNext().hasNext()) {
+            while (clone.getNext().hasNext()) {
                 clone = clone.getNext();
             }
             ListNode last = clone.getNext();
@@ -79,7 +79,7 @@ public class ReverseListNode {
             clone = tmp;
         }
 
-        if(clone.hasNext()) {
+        if (clone.hasNext()) {
             ListNode add = reverse;
             while (add.hasNext()) {
                 add = add.getNext();
