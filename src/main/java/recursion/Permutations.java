@@ -42,6 +42,14 @@ public class Permutations {
         nums[j] = temp;
     }
 
+    private void printArray(int[] input) {
+        System.out.print('\n');
+        for(int i = 0; i < input.length; i++) {
+            System.out.print(input[i]);
+        }
+        System.out.println();
+    }
+
     private void printArray(List<Integer> input) {
         System.out.print('\n');
         for(int i = 0; i < input.size(); i++) {
@@ -52,6 +60,9 @@ public class Permutations {
     public static void main(String[] args) {
         Permutations p = new Permutations();
         int[] nums = null;
+
+        nums = new int[]{1, 2};
+        System.out.println(">" + p.permute(nums));
 
         nums = new int[]{1, 2, 3};
         System.out.println(">" + p.permute(nums));
