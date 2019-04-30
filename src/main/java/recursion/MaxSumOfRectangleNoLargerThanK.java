@@ -4,6 +4,12 @@ import arrays.MaximumSumCircularSubarray;
 
 import java.util.TreeSet;
 
+/*
+https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/
+
+Given a non-empty 2D matrix matrix and an integer k, find the max sum of a rectangle in the matrix such that its sum is no larger than k.
+
+ */
 public class MaxSumOfRectangleNoLargerThanK {
     MaxSumOfRectangleNoLargerThanK() {
     }
