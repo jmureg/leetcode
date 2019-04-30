@@ -1,6 +1,9 @@
 package dynamicProgramming;
 
 public class HouseRobber {
+    HouseRobber() {
+    }
+
     public static void main(String[] args) {
         HouseRobber hr = new HouseRobber();
         int[] nums = null;
@@ -25,9 +28,6 @@ public class HouseRobber {
 
         nums = new int[]{2, 7, 9, 3, 1};
         System.out.println("12: " + hr.rob(nums));
-    }
-
-    HouseRobber() {
     }
 
     public int rob(int[] nums) {

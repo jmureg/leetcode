@@ -13,6 +13,35 @@ public class ValidParentheses {
     ValidParentheses() {
     }
 
+    public static void main(String[] args) {
+        ValidParentheses vp = new ValidParentheses();
+        String input = null;
+
+        input = "[";
+        System.out.println(input + "-" + vp.isValid(input));
+
+        input = "";
+        System.out.println(input + "-" + vp.isValid(input));
+
+        input = "{[(})]";
+        System.out.println(input + "-" + vp.isValid(input));
+
+        input = "[({})]";
+        System.out.println(input + "-" + vp.isValid(input));
+
+        input = "[()]";
+        System.out.println(input + "-" + vp.isValid(input));
+
+        input = "([)]";
+        System.out.println(input + "-" + vp.isValid(input));
+
+        input = "()";
+        System.out.println(input + "-" + vp.isValid(input));
+
+        input = "())";
+        System.out.println(input + "-" + vp.isValid(input));
+    }
+
     public boolean isValid(String s) {
         Stack<Character> cache = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
@@ -53,34 +82,5 @@ public class ValidParentheses {
             }
         }
         return cache.size() == 0;
-    }
-
-    public static void main(String[] args) {
-        ValidParentheses vp = new ValidParentheses();
-        String input = null;
-
-        input = "[";
-        System.out.println(input + "-" + vp.isValid(input));
-
-        input = "";
-        System.out.println(input + "-" + vp.isValid(input));
-
-        input = "{[(})]";
-        System.out.println(input + "-" + vp.isValid(input));
-
-        input = "[({})]";
-        System.out.println(input + "-" + vp.isValid(input));
-
-        input = "[()]";
-        System.out.println(input + "-" + vp.isValid(input));
-
-        input = "([)]";
-        System.out.println(input + "-" + vp.isValid(input));
-
-        input = "()";
-        System.out.println(input + "-" + vp.isValid(input));
-
-        input = "())";
-        System.out.println(input + "-" + vp.isValid(input));
     }
 }

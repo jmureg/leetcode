@@ -14,6 +14,20 @@ public class FindMissingNumber {
     FindMissingNumber() {
     }
 
+    public static void main(String[] args) {
+        FindMissingNumber fmn = new FindMissingNumber();
+        int[] nums = null;
+
+        nums = new int[]{0, 1, 2, 4};
+        System.out.println(Arrays.toString(nums) + fmn.missingNumber(nums));
+
+        nums = new int[]{3, 0, 1};
+        System.out.println(Arrays.toString(nums) + fmn.missingNumber(nums));
+
+        nums = new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1};
+        System.out.println(Arrays.toString(nums) + fmn.missingNumber(nums));
+    }
+
     public int missingNumber(int[] nums) {
         int[] register = new int[nums.length + 1];
         Arrays.fill(register, 0);
@@ -30,19 +44,5 @@ public class FindMissingNumber {
         }
 
         return -1;
-    }
-
-    public static void main(String[] args) {
-        FindMissingNumber fmn = new FindMissingNumber();
-        int[] nums = null;
-
-        nums = new int[]{0, 1, 2, 4};
-        System.out.println(Arrays.toString(nums) + fmn.missingNumber(nums));
-
-        nums = new int[]{3, 0, 1};
-        System.out.println(Arrays.toString(nums) + fmn.missingNumber(nums));
-
-        nums = new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1};
-        System.out.println(Arrays.toString(nums) + fmn.missingNumber(nums));
     }
 }

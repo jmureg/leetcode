@@ -9,10 +9,10 @@ public class Test {
         Stack<String> h = new Stack<String>();
 
         Hashtable<Integer, String> hashtable = new Hashtable<>();
-        hashtable.put(1,  "A");
-        hashtable.put(2,  "B" );
-        hashtable.put(3,  "C");
-        hashtable.put(2,  "BB" );
+        hashtable.put(1, "A");
+        hashtable.put(2, "B");
+        hashtable.put(3, "C");
+        hashtable.put(2, "BB");
         String test = hashtable.get(2);
         System.out.println(hashtable);
 

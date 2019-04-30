@@ -1,39 +1,13 @@
 package arrays;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TaskScheduler {
     private int coolDown;
-    
-    TaskScheduler(int cd){
+
+    TaskScheduler(int cd) {
         this.coolDown = cd;
-    }
-    
-    public int execute(int[] tasks) {
-        int ans = 0;
-        List<Integer> cache = initCache();
-
-        for (int currentTask:tasks
-             ) {
-            if(cache.contains(currentTask)) {
-                int pos = cache.indexOf(currentTask);
-                ans += pos;
-            }
-            ans++;
-            cache.remove(0);
-            cache.add(currentTask);
-        }
-
-        return ans;
-    }
-
-    private List<Integer> initCache() {
-        List<Integer> cache = new LinkedList<Integer>();
-        for (int i=0; i<=this.coolDown; i++) {
-            cache.add(0);
-        }
-
-        return cache;
     }
 
     public static void main(String[] args) {
@@ -50,6 +24,33 @@ public class TaskScheduler {
         System.out.println("4: " + ts.execute(tasks));
 
 
+    }
+
+    public int execute(int[] tasks) {
+        int ans = 0;
+        List<Integer> cache = initCache();
+
+        for (int currentTask : tasks
+        ) {
+            if (cache.contains(currentTask)) {
+                int pos = cache.indexOf(currentTask);
+                ans += pos;
+            }
+            ans++;
+            cache.remove(0);
+            cache.add(currentTask);
+        }
+
+        return ans;
+    }
+
+    private List<Integer> initCache() {
+        List<Integer> cache = new LinkedList<Integer>();
+        for (int i = 0; i <= this.coolDown; i++) {
+            cache.add(0);
+        }
+
+        return cache;
     }
 
 }

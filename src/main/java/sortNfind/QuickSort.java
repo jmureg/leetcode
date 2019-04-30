@@ -9,7 +9,7 @@ https://www.programcreek.com/2012/11/quicksort-array-in-java/
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] x = { 9, 2, 4, 7, 3, 7, 10 };
+        int[] x = {9, 2, 4, 7, 3, 7, 10};
         System.out.println(Arrays.toString(x));
 
         int low = 0;

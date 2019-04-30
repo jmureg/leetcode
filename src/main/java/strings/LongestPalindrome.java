@@ -6,10 +6,34 @@ https://www.programcreek.com/2013/12/leetcode-solution-of-longest-palindromic-su
  */
 public class LongestPalindrome {
 
-    LongestPalindrome(){
+    LongestPalindrome() {
     }
 
+    public static void main(String[] args) {
+        LongestPalindrome lp = new LongestPalindrome();
+        String s = null;
 
+        s = "abb";
+        System.out.println("bb: " + lp.longestPalindrome(s));
+
+        s = "ccc";
+        System.out.println("ccc: " + lp.longestPalindrome(s));
+
+        s = "";
+        System.out.println(": " + lp.longestPalindrome(s));
+
+        s = "juliussuiluj";
+        System.out.println("a: " + lp.longestPalindrome(s));
+
+        s = "a";
+        System.out.println("a: " + lp.longestPalindrome(s));
+
+        s = "babad";
+        System.out.println("aba: " + lp.longestPalindrome(s));
+
+        s = "cbbd";
+        System.out.println("bb: " + lp.longestPalindrome(s));
+    }
 
     public String longestPalindrome(String s) {
         if (s.isEmpty()) {
@@ -44,31 +68,5 @@ public class LongestPalindrome {
             end++;
         }
         return s.substring(begin + 1, end);
-    }
-
-    public static void main(String[] args) {
-        LongestPalindrome lp = new LongestPalindrome();
-        String s = null;
-
-        s = new String("abb");
-        System.out.println("bb: " + lp.longestPalindrome(s));
-
-        s = new String("ccc");
-        System.out.println("ccc: " + lp.longestPalindrome(s));
-
-        s = new String("");
-        System.out.println(": " + lp.longestPalindrome(s));
-
-        s = new String("juliussuiluj");
-        System.out.println("a: " + lp.longestPalindrome(s));
-
-        s = new String("a");
-        System.out.println("a: " + lp.longestPalindrome(s));
-
-        s = new String("babad");
-        System.out.println("aba: " + lp.longestPalindrome(s));
-
-        s = new String("cbbd");
-        System.out.println("bb: " + lp.longestPalindrome(s));
     }
 }

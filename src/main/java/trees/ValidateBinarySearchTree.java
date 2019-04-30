@@ -4,17 +4,8 @@ import java.util.ArrayList;
 
 public class ValidateBinarySearchTree {
 
-    ValidateBinarySearchTree(){
+    ValidateBinarySearchTree() {
 
-    }
-
-    public boolean isValid(TreeNode root) {
-        if(root==null) {
-            return true;
-        } else if ((root.left==null) || (root.left!=null && root.left.val<root.val) && (root.right==null) || (root.right!=null && root.right.val>root.val)) {
-            return isValidBST(root.left) && isValidBST(root.right);
-        }
-        return false;
     }
 
     public static void main(String[] args) {
@@ -95,5 +86,14 @@ public class ValidateBinarySearchTree {
             }
         }
         return true;
+    }
+
+    public boolean isValid(TreeNode root) {
+        if (root == null) {
+            return true;
+        } else if ((root.left == null) || (root.left != null && root.left.val < root.val) && (root.right == null) || (root.right != null && root.right.val > root.val)) {
+            return isValidBST(root.left) && isValidBST(root.right);
+        }
+        return false;
     }
 }

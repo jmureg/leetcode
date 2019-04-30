@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClimbingStairs {
+    public static Map<Integer, Integer> cache = new HashMap<>();
+
     public static void main(String[] args) {
         Map<Integer, Integer> cache = new HashMap<>();
         System.out.println("climbStairs : " + climbStairs(6));
     }
-
-    public static Map<Integer, Integer> cache = new HashMap<>();
 
     public static int climbStairs(int n) {
         cache.put(1, 1);

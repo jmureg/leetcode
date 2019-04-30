@@ -1,6 +1,20 @@
 package games;
 
 public class SudokuSolver {
+    // box size
+    int n = 3;
+    // row size
+    int N = n * n;
+    int[][] rows = new int[N][N + 1];
+    int[][] columns = new int[N][N + 1];
+    int[][] boxes = new int[N][N + 1];
+    char[][] board;
+    boolean sudokuSolved = false;
+
+    SudokuSolver(char[][] board) {
+        this.board = board;
+    }
+
     public static void main(String[] args) {
         System.out.println();
 
@@ -20,23 +34,6 @@ public class SudokuSolver {
         ss.solveSudoku();
         ss.print();
     }
-
-    SudokuSolver(char[][] board) {
-        this.board = board;
-    }
-
-    // box size
-    int n = 3;
-    // row size
-    int N = n * n;
-
-    int[][] rows = new int[N][N + 1];
-    int[][] columns = new int[N][N + 1];
-    int[][] boxes = new int[N][N + 1];
-
-    char[][] board;
-
-    boolean sudokuSolved = false;
 
     public boolean couldPlace(int d, int row, int col) {
     /*

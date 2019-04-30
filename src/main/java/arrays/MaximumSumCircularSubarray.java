@@ -4,6 +4,30 @@ public class MaximumSumCircularSubarray {
     MaximumSumCircularSubarray() {
     }
 
+    public static void main(String[] args) {
+        MaximumSumCircularSubarray mscs = new MaximumSumCircularSubarray();
+        int[] nums = null;
+
+        nums = new int[]{-1, 3, -3, 9, -6, 8, -5, -5, -6, 10};
+        System.out.println("3: " + mscs.maxSubarraySumCircular(nums));
+
+
+        nums = new int[]{1, -2, 3, -2};
+        System.out.println("3: " + mscs.maxSubarraySumCircular(nums));
+
+
+        nums = new int[]{1, -2, 3, -2, 5};
+        System.out.println("7: " + mscs.maxSubarraySumCircular(nums));
+
+        nums = new int[]{3, -1, 2, -1};
+        System.out.println("4: " + mscs.maxSubarraySumCircular(nums));
+
+        nums = new int[]{5, -2, 5};
+        System.out.println("10: " + mscs.maxSubarraySumCircular(nums));
+
+
+    }
+
     /*
     O(n)
      */
@@ -71,30 +95,6 @@ public class MaximumSumCircularSubarray {
             }
         }
         return max;
-    }
-
-    public static void main(String[] args) {
-        MaximumSumCircularSubarray mscs = new MaximumSumCircularSubarray();
-        int[] nums = null;
-
-        nums = new int[]{-1, 3, -3, 9, -6, 8, -5, -5, -6, 10};
-        System.out.println("3: " + mscs.maxSubarraySumCircular(nums));
-
-
-        nums = new int[]{1, -2, 3, -2};
-        System.out.println("3: " + mscs.maxSubarraySumCircular(nums));
-
-
-        nums = new int[]{1, -2, 3, -2, 5};
-        System.out.println("7: " + mscs.maxSubarraySumCircular(nums));
-
-        nums = new int[]{3, -1, 2, -1};
-        System.out.println("4: " + mscs.maxSubarraySumCircular(nums));
-
-        nums = new int[]{5, -2, 5};
-        System.out.println("10: " + mscs.maxSubarraySumCircular(nums));
-
-
     }
 
 }

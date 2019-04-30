@@ -12,6 +12,18 @@ public class MinStack {
         this.stack = new Stack<int[]>();
     }
 
+    public static void main(String[] args) {
+        MinStack minStack = new MinStack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        //minStack.push(5);
+        System.out.println(minStack.getMin());   //--> Returns -3.
+        minStack.pop();
+        System.out.println(minStack.top());      //--> Returns 0.
+        System.out.println(minStack.getMin());   //--> Returns -2.
+    }
+
     public void push(int x) {
         if (stack != null && stack.size() > 0) {
             this.stack.add(new int[]{x, Math.min(stack.peek()[1], x)});
@@ -43,18 +55,6 @@ public class MinStack {
         } else {
             return -1;
         }
-    }
-
-    public static void main(String[] args) {
-        MinStack minStack = new MinStack();
-        minStack.push(-2);
-        minStack.push(0);
-        minStack.push(-3);
-        //minStack.push(5);
-        System.out.println(minStack.getMin());   //--> Returns -3.
-        minStack.pop();
-        System.out.println(minStack.top());      //--> Returns 0.
-        System.out.println(minStack.getMin());   //--> Returns -2.
     }
 }
 

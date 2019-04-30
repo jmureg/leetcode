@@ -13,6 +13,12 @@ class Solution {
         this.shuffled = nums.clone();
     }
 
+    public static void main(String[] args) {
+        int[] nums = new int[]{1, 2, 3};
+        Solution sol = new Solution(nums);
+        System.out.println(Arrays.toString(sol.shuffle()));
+    }
+
     /**
      * Resets the array to its original configuration and return it.
      */
@@ -38,12 +44,6 @@ class Solution {
         int tmp = shuffled[counter];
         shuffled[counter] = shuffled[nextElem];
         shuffled[nextElem] = tmp;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3};
-        Solution sol = new Solution(nums);
-        System.out.println(Arrays.toString(sol.shuffle()));
     }
 }
 

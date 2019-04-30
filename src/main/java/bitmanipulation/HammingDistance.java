@@ -5,6 +5,14 @@ public class HammingDistance {
 
     }
 
+    public static void main(String[] args) {
+        HammingDistance hd = new HammingDistance();
+        System.out.println("1: " + hd.hammingDistance(2147483647, 0));
+        System.out.println("3: " + hd.hammingDistance(15, 7));
+        System.out.println("2: " + hd.hammingDistance(1, 4));
+        System.out.println("1: " + hd.hammingDistance(7, 4));
+    }
+
     public int hammingDistance(int x, int y) {
         int counter = 0;
         if (x >= 0 && y >= 0 && x < Math.pow(2, 31) && y < Math.pow(2, 31)) {
@@ -37,13 +45,5 @@ public class HammingDistance {
         }
 
         return c;
-    }
-
-    public static void main(String[] args) {
-        HammingDistance hd = new HammingDistance();
-        System.out.println("1: " + hd.hammingDistance(2147483647, 0));
-        System.out.println("3: " + hd.hammingDistance(15, 7));
-        System.out.println("2: " + hd.hammingDistance(1, 4));
-        System.out.println("1: " + hd.hammingDistance(7, 4));
     }
 }

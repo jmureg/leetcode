@@ -11,6 +11,16 @@ public class RomanToInt {
     RomanToInt() {
     }
 
+    public static void main(String[] args) {
+        RomanToInt rti = new RomanToInt();
+        System.out.println("621: " + rti.romanToInt("DCXXI"));
+        System.out.println("1994: " + rti.romanToInt("MCMXCIV"));
+        System.out.println("3: " + rti.romanToInt("III"));
+        System.out.println("4: " + rti.romanToInt("IV"));
+        System.out.println("9: " + rti.romanToInt("IX"));
+        System.out.println("58: " + rti.romanToInt("LVIII"));
+    }
+
     public int romanToInt(String s) {
         int number = 0;
         int cut = 1;
@@ -87,15 +97,5 @@ public class RomanToInt {
 
     private String reduceBy(String s, int i) {
         return s.substring(i);
-    }
-
-    public static void main(String[] args) {
-        RomanToInt rti = new RomanToInt();
-        System.out.println("621: " + rti.romanToInt("DCXXI"));
-        System.out.println("1994: " + rti.romanToInt("MCMXCIV"));
-        System.out.println("3: " + rti.romanToInt("III"));
-        System.out.println("4: " + rti.romanToInt("IV"));
-        System.out.println("9: " + rti.romanToInt("IX"));
-        System.out.println("58: " + rti.romanToInt("LVIII"));
     }
 }

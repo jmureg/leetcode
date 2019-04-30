@@ -17,12 +17,12 @@ public class ListNode {
         return getNext() != null;
     }
 
-    void setNext(ListNode n) {
-        this.next = n;
-    }
-
     public ListNode getNext() {
         return this.next;
+    }
+
+    void setNext(ListNode n) {
+        this.next = n;
     }
 
     public String print() {

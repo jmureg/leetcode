@@ -15,22 +15,36 @@ You may return the answer in any order.  The answer is guaranteed to be unique (
 
  */
 public class KClosestPointsToOrigin {
-    KClosestPointsToOrigin(){
+    KClosestPointsToOrigin() {
+    }
+
+    public static void main(String[] args) {
+        KClosestPointsToOrigin kc = new KClosestPointsToOrigin();
+        int[][] points = null;
+        int k = 0;
+
+        points = new int[][]{{1, 3}, {-2, 2}};
+        k = 1;
+        System.out.println("{-2,2}" + Arrays.toString(kc.kClosest(points, k)));
+
+        points = new int[][]{{3, 3}, {5, -1}, {-2, 4}};
+        k = 2;
+        System.out.println("[[3,3],[-2,4]]" + Arrays.toString(kc.kClosest(points, k)));
     }
 
     public int[][] kClosest(int[][] points, int K) {
-        PriorityQueue<int[]> cache = new PriorityQueue<>((p1, p2)->(p2[0]*p2[0]+p2[1]*p2[1]) - (p1[0]*p1[0]+p1[1]*p1[1]));
+        PriorityQueue<int[]> cache = new PriorityQueue<>((p1, p2) -> (p2[0] * p2[0] + p2[1] * p2[1]) - (p1[0] * p1[0] + p1[1] * p1[1]));
         int max = 0;
-        for (int[] point: points
+        for (int[] point : points
         ) {
             cache.add(point);
-            if(cache.size()>K) {
+            if (cache.size() > K) {
                 cache.poll();
             }
         }
         int[][] ans = new int[cache.size()][];
         int counter = 0;
-        for (int[] point: cache
+        for (int[] point : cache
         ) {
             ans[counter++] = point;
         }
@@ -39,7 +53,7 @@ public class KClosestPointsToOrigin {
 
     //O(n*log(n))
     public int[][] kClosest1(int[][] points, int K) {
-        Arrays.sort(points, (a , b )-> a[0]*a[0] + a[1]*a[1] - b[0]*a[0] + b[1]*a[1]);
+        Arrays.sort(points, (a, b) -> a[0] * a[0] + a[1] * a[1] - b[0] * a[0] + b[1] * a[1]);
         return Arrays.copyOfRange(points, 0, K);
     }
 
@@ -56,19 +70,5 @@ public class KClosestPointsToOrigin {
             res[--K] = pq.poll();
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        KClosestPointsToOrigin kc = new KClosestPointsToOrigin();
-        int[][] points = null;
-        int k = 0;
-
-        points = new int[][]{{1,3}, {-2,2}};
-        k = 1;
-        System.out.println("{-2,2}" + Arrays.toString(kc.kClosest(points, k)));
-
-        points = new int[][]{{3,3}, {5,-1}, {-2,4}};
-        k = 2;
-        System.out.println("[[3,3],[-2,4]]" + Arrays.toString(kc.kClosest(points, k)));
     }
 }

@@ -7,6 +7,9 @@ import java.util.Arrays;
 
 public class Minesweeper {
 
+    private static String EMPTY = "  ";
+    private static String MINE = " * ";
+    private static String UNKNOWN = " ? ";
     private int size;
     private int mines;
     private boolean debug = false;
@@ -15,10 +18,6 @@ public class Minesweeper {
     private boolean won = false;
     private boolean lost = false;
     private int moves = -1;
-
-    private static String EMPTY = "  ";
-    private static String MINE = " * ";
-    private static String UNKNOWN = " ? ";
 
     public Minesweeper(int size, int mines) {
         this.size = size;

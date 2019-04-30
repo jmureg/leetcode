@@ -8,12 +8,12 @@ Count the number of prime numbers less than a non-negative number, n.
 
  */
 public class CountPrimes {
+    CountPrimes() {
+    }
+
     public static void main(String[] args) {
         CountPrimes cp = new CountPrimes();
         System.out.println(cp.countPrimes(10));
-    }
-
-    CountPrimes() {
     }
 
     /* dynamic programming */

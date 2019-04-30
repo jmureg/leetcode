@@ -4,6 +4,25 @@ public class TrappingRainWater {
     TrappingRainWater() {
     }
 
+    public static void main(String[] args) {
+        TrappingRainWater trw = new TrappingRainWater();
+        int[] height = null;
+
+        height = new int[]{0, 5, 1, 5, 1, 2, 1, 2, 1, 2, 1, 0};
+        System.out.println("7: " + trw.trap(height));
+
+
+        height = new int[]{0, 1, 3, 2, 0};
+        System.out.println("0: " + trw.trap(height));
+
+        height = new int[]{0, 5, 1, 2, 1, 3, 1, 6, 0};
+        System.out.println("17: " + trw.trap(height));
+
+        height = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        System.out.println("6: " + trw.trap(height));
+
+    }
+
     public int trap(int[] height) {
         if (height.length < 3) return 0;
 
@@ -31,24 +50,5 @@ public class TrappingRainWater {
             }
         }
         return ans;
-    }
-
-    public static void main(String[] args) {
-        TrappingRainWater trw = new TrappingRainWater();
-        int[] height = null;
-
-        height = new int[]{0, 5, 1, 5, 1, 2, 1, 2, 1, 2, 1, 0};
-        System.out.println("7: " + trw.trap(height));
-
-
-        height = new int[]{0, 1, 3, 2, 0};
-        System.out.println("0: " + trw.trap(height));
-
-        height = new int[]{0, 5, 1, 2, 1, 3, 1, 6, 0};
-        System.out.println("17: " + trw.trap(height));
-
-        height = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-        System.out.println("6: " + trw.trap(height));
-
     }
 }

@@ -4,20 +4,6 @@ public class PowerOfThree {
     PowerOfThree() {
     }
 
-    public boolean isPowerOfThree(int n) {
-        if (n <= 0) {
-            return false;
-        }
-        if (n % 3 == 0) {
-            if (n / 3 == 1) {
-                return true;
-            } else {
-                return isPowerOfThree(n / 3);
-            }
-        } else return n == 1;
-
-    }
-
     public static void main(String[] args) {
         PowerOfThree pot = new PowerOfThree();
         int n = 0;
@@ -33,5 +19,19 @@ public class PowerOfThree {
 
         n = 9;
         System.out.println(n + " - " + pot.isPowerOfThree(n));
+    }
+
+    public boolean isPowerOfThree(int n) {
+        if (n <= 0) {
+            return false;
+        }
+        if (n % 3 == 0) {
+            if (n / 3 == 1) {
+                return true;
+            } else {
+                return isPowerOfThree(n / 3);
+            }
+        } else return n == 1;
+
     }
 }
