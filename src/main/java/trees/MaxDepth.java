@@ -17,7 +17,6 @@ public class MaxDepth {
         twenty.setRight(seven);
 
         System.out.println(maxDepth1(root));
-        System.out.println(maxDepth2(root));
     }
 
     public static int maxDepth1(BinaryTreeNode root) {
@@ -25,14 +24,6 @@ public class MaxDepth {
             return 0;
         } else {
             return Math.max(1 + maxDepth1(root.getRight()), 1 + maxDepth1(root.getLeft()));
-        }
-    }
-
-    public static int maxDepth2(BinaryTreeNode root) {
-        if (root == null) {
-            return 0;
-        } else {
-            return max(1 + maxDepth2(root.getRight()), 1 + maxDepth2(root.getLeft()));
         }
     }
 

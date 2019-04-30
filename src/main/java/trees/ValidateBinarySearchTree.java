@@ -4,7 +4,22 @@ import java.util.ArrayList;
 
 public class ValidateBinarySearchTree {
 
+    ValidateBinarySearchTree(){
+
+    }
+
+    public boolean isValid(TreeNode root) {
+        if(root==null) {
+            return true;
+        } else if ((root.left==null) || (root.left!=null && root.left.val<root.val) && (root.right==null) || (root.right!=null && root.right.val>root.val)) {
+            return isValidBST(root.left) && isValidBST(root.right);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
+        ValidateBinarySearchTree val = new ValidateBinarySearchTree();
+
 
         TreeNode root = null;
 
@@ -15,6 +30,8 @@ public class ValidateBinarySearchTree {
         root.left = onex;
 
         System.out.println(isValidBST(root));
+        System.out.println(val.isValid(root));
+        System.out.println();
 
 
         root = new TreeNode(2);
@@ -25,6 +42,8 @@ public class ValidateBinarySearchTree {
         root.right = twenty;
 
         System.out.println(isValidBST(root));
+        System.out.println(val.isValid(root));
+        System.out.println();
 
 
         root = new TreeNode(5);
@@ -41,6 +60,9 @@ public class ValidateBinarySearchTree {
         twenty.right = six;
 
         System.out.println(isValidBST(root));
+        System.out.println(val.isValid(root));
+        System.out.println();
+
     }
 
     public static boolean isValidBST(TreeNode root) {
