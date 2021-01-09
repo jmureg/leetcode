@@ -9,6 +9,7 @@ public class Read4k {
     int position = 0;
     ArrayList<String> lines = new ArrayList<String>();
     boolean reachedEndOfFile = false;
+
     Read4k() {
 
         for (int i = 0; i < 10000; i++) {

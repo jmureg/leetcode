@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.Arrays;
+
 public class RotateArray {
     public static void main(String[] args) {
         System.out.println("[1,2,3,4,5,6,7] and k=3");
@@ -20,7 +22,7 @@ public class RotateArray {
         array = new int[]{1, 2};
         rotate(array, 3);
 
-        System.out.println("fin.");
+        System.out.println("result: " + Arrays.toString(array));
     }
 
     public static void rotate(int[] nums, int k) {

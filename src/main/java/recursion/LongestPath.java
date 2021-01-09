@@ -15,9 +15,9 @@ Find the maximum area of an island in the given 2D array. (If there is no island
 public class LongestPath {
     int[][] grid;
 
-/*
-source https://leetcode.com/problems/max-area-of-island/solution/
-*/
+    /*
+    source https://leetcode.com/problems/max-area-of-island/solution/
+    */
     boolean[][] seen;
 
     public static void main(String[] args) {
