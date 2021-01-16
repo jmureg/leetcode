@@ -27,7 +27,6 @@ public class BinaryTreeLevelOrderTraversal {
 
         System.out.println(levelOrder(root));
 
-
         root = new TreeNode(5);
 
         TreeNode one = new TreeNode(1);
